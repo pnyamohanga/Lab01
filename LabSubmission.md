@@ -137,14 +137,21 @@ Two attacker actions against IAM that these rules would miss include but not lim
 - Credential Theft and Token Hijacking; Attackers target valid user or machine credentials to impersonate legitimate identities and bypass standard perimeter defenses. (FBI)
 - Privilege Escalation via Policy Misconfigurations; An attacker could create a new access key for an existing IAM user and use it to access AWS resources programmatically. This is particularly dangerous because the attacker could maintain access even if the legitimate user is unaware of the compromise.
 The following event pattern detects attempts to create a login profile for an existing IAM user:
-*{
-"source":["aws.iam"],"detail-type":["AWS API Call via CloudTrail"],
-"detail":{
-"eventSource":["iam.amazonaws.com"],
- 	"eventName": ["CreateAccessKey"]
-}
-}*
 
+            *{
+  
+            "source":["aws.iam"],"detail-type":["AWS API Call via CloudTrail"],
+  
+            "detail":{
+  
+            "eventSource":["iam.amazonaws.com"],
+  
+             	"eventName": ["CreateAccessKey"]
+  
+            }
+  
+            }*
+  
 Alert fatigue occurs when security teams receive too many alerts, including false positives and low-priority notifications. When analysts are overwhelmed with notifications, they may overlook genuine malicious activities or become desensitized to repeated warnings.
 
 Amazon GuardDuty takes a broader threat-detection approach than manually configured EventBridge rules. Rather than relying only on predefined API event names, GuardDuty continuously analyzes supported AWS data sources, including CloudTrail management events, VPC Flow Logs, and DNS logs. It uses threat intelligence, anomaly detection, and machine learning to identify potentially malicious activity (AWS GuardDuty).

@@ -228,3 +228,34 @@ What new risks appear? Introducing an external identity provider creates additio
 Token rotation is safe without restarting services because the application supports multiple valid tokens during a transition period. Instead of immediately invalidating the old token, the system temporarily accepts both the old and new tokens.
 
 If services accepted only the current token, immediately replacing the old token could cause several problems; users with sessions relying on the old token could be logged out, applications still using the old token would receive authentication failures, API requests containing the previous token could fail with HTTP 401 Unauthorized, background jobs or processes using cached credentials could stop working, and service availability  could become unavailable until they retrieve and start using the new token.
+
+## References
+1.	AWS. (n.d.). AWS global condition context keys. https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html.
+2.	AWS. (n.d.). Class BOOL. https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/xspec/BOOL.html.
+3.	AWS GuardDuty. (n.d.). Amazon Guard Duty. https://docs.aws.amazon.com/sap/latest/general/guardduty.html.
+4.	AWS. (n.d.). Permissions boundaries for IAM entities. https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html.
+5.	AWS. (n.d.). Service control policies (SCPs). https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html.
+6.	AWSCert Manager. (n.d.). AWS Certificate Manager. https://aws.amazon.com/certificate-manager/.
+7.	AWSCustomer ManagedKeys. (n.d.). AWS Key Management Service. https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html.
+8.	AWSessiion Manager. (n.d.). AWS Systems Manager Session Manager. https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html.
+9.	AWSHop Limit. (n.d.). Access instance metadata for an EC2 instance. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html#imds-considerations.
+10.	AWSIMDS. (n.d.). Configure the Instance Metadata Service options. https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html.
+11.	AWSKey Policies. (n.d.). Key policies in AWS KMS. https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html.
+12.	AWSKMS Pricing. (n.d.). AWS Key Management Service pricing. https://aws.amazon.com/kms/pricing/.
+13.	AWSKMS Security. (n.d.). Security of AWS Key Management Service. https://docs.aws.amazon.com/kms/latest/developerguide/kms-security.html.
+14.	AWSRepost. (n.d.). How can I add certificates for multiple domains to a load balancer using AWS Certificate Manager? https://www.repost.aws/knowledge-center/acm-add-domain-certificates-elb.
+15.	AWSSecrets Manager. (n.d.). What is AWS Secrets Manager? https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html.
+16.	Certificate Transparency. (n.d.). Working together to detect maliciously or mistakenly issued certificates. https://certificate.transparency.dev/.
+17.	Digicert. (n.d.). Public trust: how public CAs and TLS certificates work. https://www.digicert.com/faq/public-trust-and-certificates.
+18.	FBI. (n.d.). Ahead of the Threat Podcast: Season 3, Episode 2 – Stan Duijf and Paul Foster. https://www.fbi.gov/video-repository/aott0302v2.mp4/view.
+19.	MacCárthaigh, C. (2019). AWS Security Blog. Add defense in depth against open firewalls, reverse proxies, and SSRF vulnerabilities with enhancements to the EC2 Instance Metadata Service.
+20.	Mozilla org. (n.d.). Strict-Transport-Security header. https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security.
+21.	National Security Agency(NSA). (2023). Defending Continuous Integration/Continuous Delivery (CI/CD) Environments. https://media.defense.gov/2023/Jun/28/2003249466/-1/-1/0/CSI_DEFENDING_CI_CD_ENVIRONMENTS.PDF.
+22.	Palmer, D. (2023). LastPass breach: Hackers put malware on engineer’s home computer to steal their password. https://www.zdnet.com/article/lastpass-breach-hackers-put-malware-on-engineers-home-computer-to-steal-their-password/.
+23.	Peterson, J. (2026). CI/CD pipeline security: Best practices beyond build and deploy. https://cycode.com/blog/ci-cd-pipeline-security-best-practices/.
+24.	Sharwood, S. (2018). Uber quits GitHub for in-house code after 2016 data breach. https://www.theregister.com/security/2018/02/07/uber-quits-github-for-in-house-code-after-2016-data-breach/955982.
+25.	SSLTrust. (n.d.). Self-Signed SSL Certificates Explained Risks & Use Cases. https://www.ssltrust.com/learning/ssl/self-signed-ssl-certificates.
+
+
+
+

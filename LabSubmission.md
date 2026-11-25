@@ -233,7 +233,7 @@ If services accepted only the current token, immediately replacing the old token
 ## Q20. Which control would have prevented the incident, and which only limited it? Name one more free control you would add?
 The container logs indicated the actor was the admin. The administrator's permissions should have been restricted to prevent unauthorized creation of access keys. Specifically, the *iam:CreateAccessKey* permission. An IAM policy could explicitly deny the action where appropriate.
 
-Add an additional layer of Multi-factor authentication to the admin web-console access.
+Add an additional layer of Multi-factor authentication to the admin user.
 
 One additional free control to add AWS CloudTrail with alerts for unusual administrative activities such *CreateAccessKey*.
 

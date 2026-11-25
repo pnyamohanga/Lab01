@@ -88,7 +88,7 @@ Accidental key deletion; an administrator could schedule a key for deletion. Onc
             
             Action: iam:AttachUserPolicy
             
-            Resource: arn:aws:iam::ACCT:user/nimbus/alice
+            Resource: arn:aws:iam::092454132131:user/nimbus/alice
             
             Request context:
             

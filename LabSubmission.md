@@ -191,7 +191,8 @@ The condition key is:
           		"aws:MultiFactorAuthPresent": "false"
 }
 }
-##Q17. Who created mallory and how did you find out? Why does the audit trail in S3 not show it?
+## Q17. Who created mallory and how did you find out? Why does the audit trail in S3 not show it?
+The AWS IAM User created mallory user, in my case itms_1. IAM events are global and recorded in us-east-1. in us-east-2, return nothing for an IAM user. I did re-run the script in an AWS_REGION=us-east-1. used the command *export AWS_REGION=us-east-2* then ./08-investigate.sh mallory.
 
 ## Q18 (explore). Replacing IAM users with single sign on.
 

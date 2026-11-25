@@ -230,6 +230,19 @@ Token rotation is safe without restarting services because the application suppo
 
 If services accepted only the current token, immediately replacing the old token could cause several problems; users with sessions relying on the old token could be logged out, applications still using the old token would receive authentication failures, API requests containing the previous token could fail with HTTP 401 Unauthorized, background jobs or processes using cached credentials could stop working, and service availability  could become unavailable until they retrieve and start using the new token.
 
+## Q20. Which control would have prevented the incident, and which only limited it? Name one more free control you would add?
+The container logs indicated the actor was the admin. The administrator's permissions should have been restricted to prevent unauthorized creation of access keys. Specifically, the *iam:CreateAccessKey* permission. An IAM policy could explicitly deny the action where appropriate.
+
+Add an additional layer of Multi-factor authentication to the admin web-console access.
+
+One additional free control to add AWS CloudTrail with alerts for unusual administrative activities such *CreateAccessKey*.
+
+
+## Q21 (explore). Mapping the drill to a framework
+
+
+
+
 ## References
 1.	AWS. (n.d.). AWS global condition context keys. https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html.
 2.	AWS. (n.d.). Class BOOL. https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/dynamodbv2/xspec/BOOL.html.

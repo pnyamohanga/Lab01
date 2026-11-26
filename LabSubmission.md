@@ -243,6 +243,19 @@ One additional free control to add AWS CloudTrail with alerts for unusual admini
 ## Q22. Complete the table in your own words: which limit do you hit first in each row, and what do you change?
 | Concern |	Why it holds at 100 |	Which Limit hit & what to change? |
 |---|---|---|
+| Permissions | Access comes from 3 groups, never from per user policies | limitation of adding a user to more than 10 groups,  shift to using AWS IAM Identity Center for a growing organization|
+| Registry | One S3 object per employee: no shared file, no write conflicts | Limitation of performance, activate S3 event notification to locally update registry instead of repeatedly listing all object|
+| Dashboard	| Paginated IAM calls, 8 parallel workers, 15 second cache| limitation of Overpopulated dashboard results, retrieve information in batches wherever AWS provides list or summary operations|
+|Service Identity | Roles are scoped to user/nimbus/*, so new users need no policy change | limitation of IAM roles are only scoped under /user/nimbus/ any other user outside the full path, the role will not inherit permissions, enforce restriction to create users within the nimbus path|
+| Sign In |	One shared admin password in Secrets Manager, lockout after 5 failures | Lockout limitations after 5 login failure attempts, reduce number of passwords Reauth required by employing SSO |
+| Logging |	Logs are 7 to 30 day, a few KB per day |Storage capacity capped at a few KB, as well as cost limitation, increase daily capacity for logs ingestion and migrate to a central logging such as SIEM| 
+
+
+
+
+
+
+
 
 
 

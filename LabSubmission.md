@@ -240,6 +240,12 @@ One additional free control to add AWS CloudTrail with alerts for unusual admini
 
 ## Q21 (explore). Mapping the drill to a framework
 
+## Q22. Complete the table in your own words: which limit do you hit first in each row, and what do you change?
+| Concern |	Why it holds at 100 |	Which Limit hit & what to change? |
+|---|---|---|
+
+
+
 
 
 

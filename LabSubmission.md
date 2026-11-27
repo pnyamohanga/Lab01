@@ -239,6 +239,22 @@ One additional free control to add AWS CloudTrail with alerts for unusual admini
 
 
 ## Q21 (explore). Mapping the drill to a framework
+The drill demonstrates how an attacker with stolen AWS administrator credentials can abuse legitimate IAM functionality to create additional credentials.
+|Incident Drill Step| 	MITRE ATT&CK technique|	Explanation|
+|---|---|---|
+
+|Attacker creates an access key for James| T1555.006 - Cloud Secrets Management Stores | Adversaries may acquire credentials from cloud-native secret management solutions such as AWS Secrets Manager, GCP Secret Manager, Azure Key Vault, and Terraform Vault|
+
+NIST SP 800-53 control families cover logging, monitoring, access management, and incident response.
+
+|Control implemented in the lab| NIST SP 800-53 control| How it satisfies the requirement|
+|---|---|---|
+
+|AWS CloudTrail| AU-2 – Event Logging| Records important IAM activities, including user creation and access-key creation|
+
+|EventBridge detection rules| AU-6 – Audit Record Review, Analysis, and Reporting |	Automatically identifies selected suspicious IAM events and initiates alerts|
+
+|Amazon SNS notifications| IR-6 – Incident Reporting |Notifies the responsible security personnel when suspicious activities trigger an alert|
 
 ## Q22. Complete the table in your own words: which limit do you hit first in each row, and what do you change?
 | Concern |	Why it holds at 100 |	Which Limit hit & what to change? |

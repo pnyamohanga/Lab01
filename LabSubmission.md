@@ -262,11 +262,65 @@ NIST SP 800-53 control families cover logging, monitoring, access management, an
 | Sign In |	One shared admin password in Secrets Manager, lockout after 5 failures | Lockout limitations after 5 login failure attempts, reduce number of passwords Reauth required by employing SSO |
 | Logging |	Logs are 7 to 30 day, a few KB per day |Storage capacity capped at a few KB, as well as cost limitation, increase daily capacity for logs ingestion and migrate to a central logging such as SIEM| 
 
+## Q23 (explore). Controls that even an administrator cannot remove
 
+Service Control Policies (SCPs) provide an additional layer of protection by defining the maximum permissions available to IAM users and roles in member accounts.
+1. Control One: Enforce TLS-only access to S3
+Objective: Prevent administrators and applications from accessing S3 objects over unencrypted HTTP connections.
 
+The SCP explicitly denies S3 requests that do not use HTTPS.
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+            
+                  "Sid": "DenyS3RequestsWithoutTLS",
+                  "Effect": "Deny",
+                  "Action": "s3:*",
+                  "Resource": "*",
+                  "Condition": {
+                    "Bool": {
+                      "aws:SecureTransport": "false"
+                    }
+                  }
+                }
+              ]
+            }
+            
+2. Control Two: Enforce minimum TLS 1.2
+Objective: Prevent access to S3 through outdated TLS protocol versions.
 
+The following SCP denies S3 requests that use TLS versions lower than 1.2.
 
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+            
+                  "Sid": "DenyS3TLSBelow12",
+                  "Effect": "Deny",
+                  "Action": "s3:*",
+                  "Resource": "*",
+                  "Condition": {
+                    "NumericLessThan": {
+                      "s3:TlsVersion": "1.2"
+                    }
+                  }
+                }
+              ]
+            }
 
+Tasks and entities not restricted by SCPs
+
+- Any action performed by the management account
+
+- Any action performed using permissions that are attached to a service-linked role
+
+- Register for the Enterprise support plan as the root user
+
+- Provide trusted signer functionality for CloudFront private content
+
+- Configure reverse DNS for an Amazon Lightsail email server and Amazon EC2 instance as the root user
+
+- Tasks on some AWS-related services: Alexa Top Sites, Alexa Web Information Service, Amazon Mechanical Turk, Amazon Product Marketing API
 
 
 

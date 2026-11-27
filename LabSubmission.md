@@ -269,6 +269,7 @@ Service Control Policies (SCPs) provide an additional layer of protection by def
 Objective: Prevent administrators and applications from accessing S3 objects over unencrypted HTTP connections.
 
 The SCP explicitly denies S3 requests that do not use HTTPS.
+
             {
               "Version": "2012-10-17",
               "Statement": [
